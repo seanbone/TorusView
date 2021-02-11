@@ -20,6 +20,7 @@
 const int WIDTH = 1280;
 const int HEIGHT = 720;
 const std::string TEXTUREFILE = "textures/activeTexture.png";
+const int MSAA_SAMPLES = 4; // Number of samples for MSAA (set to <= 1 to disable MSAA)
 const bool WIREFRAME = false;
 const bool DEPTH_TEST = true;
 const bool BLEND = true;
@@ -87,6 +88,8 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    if (MSAA_SAMPLES > 1)
+        glfwWindowHint(GLFW_SAMPLES, MSAA_SAMPLES);
 
     // Create GLFW window 
     GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "TorusView", NULL, NULL);
