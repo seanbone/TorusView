@@ -1,5 +1,6 @@
 
 build-directory ?= build/
+jobs ?= 8
 
 all: _vim_run
 
@@ -18,7 +19,7 @@ _vim_build:
 _vim_test:
 
 
-clean:
+_vim_clean:
 	rm -rf $(build-directory)
 
 .PHONY: .ONESHELL
